@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 250 60% 99%;
+    --foreground: 250 30% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 250 30% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 250 30% 8%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 262 30% 94%;
+    --secondary-foreground: 262 40% 30%;
+    --muted: 250 30% 95%;
+    --muted-foreground: 250 15% 50%;
+    --accent: 262 30% 92%;
+    --accent-foreground: 262 40% 30%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 262 20% 88%;
+    --input: 262 20% 88%;
+    --ring: 262 83% 58%;
+    --radius: 0.75rem;
+    --chart-1: 262 83% 58%;
+    --chart-2: 280 60% 60%;
+    --chart-3: 240 70% 60%;
+    --chart-4: 300 50% 60%;
+    --chart-5: 220 80% 60%;
+  }
+
+  .dark {
+    --background: 250 25% 7%;
+    --foreground: 250 10% 95%;
+    --card: 250 22% 10%;
+    --card-foreground: 250 10% 95%;
+    --popover: 250 22% 10%;
+    --popover-foreground: 250 10% 95%;
+    --primary: 262 83% 65%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 262 20% 18%;
+    --secondary-foreground: 262 30% 85%;
+    --muted: 250 20% 16%;
+    --muted-foreground: 250 15% 60%;
+    --accent: 262 20% 20%;
+    --accent-foreground: 262 30% 85%;
+    --destructive: 0 62.8% 40%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 262 15% 20%;
+    --input: 262 15% 20%;
+    --ring: 262 83% 65%;
+    --chart-1: 262 83% 65%;
+    --chart-2: 280 60% 65%;
+    --chart-3: 240 70% 65%;
+    --chart-4: 300 50% 65%;
+    --chart-5: 220 80% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    @apply bg-white/70 dark:bg-white/5 border border-white/50 dark:border-white/10;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-violet-600 via-purple-500 to-indigo-500 bg-clip-text text-transparent;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
+}
