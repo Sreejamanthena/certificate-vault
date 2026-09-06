@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import cloudinary from '@/lib/cloudinary';
-
+//everything after the ? is called the query parameters and we can access them using the req.nextUrl.searchParams.get('paramName') method
 export async function GET(
   req: NextRequest
 ) {
