@@ -1,5 +1,6 @@
+//1st st from here 
 'use client';
-
+// use client indicates that the project runs in the browser not the server it allows us to use the hooks 
 import * as React from 'react';
 import {
   createContext,
@@ -22,7 +23,7 @@ import {
   setDoc,
   getDoc,
 } from 'firebase/firestore';
-
+// importing the auth for autheication an db for the database storage 
 import { auth, db } from '@/lib/firebase';
 
 interface Profile {
@@ -47,20 +48,20 @@ interface AuthContextType {
   ) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
 }
-
+// creatcontext creats an empty context container that stores the variables and data that can be accessed globally 
 const AuthContext = createContext<AuthContextType | undefined>(
   undefined
 );
-
+// provider is used to add the data to the context container anything that is inside the provider can access the data in the context container 
 export function AuthProvider({
-  children,
+  children,   // indicates the current running webpage 
 }: {
   children: React.ReactNode;
 }) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState<Profile | null>(null);
-
+ // fetches the proile of the user from the database and sets it to the profile state variable
   const fetchProfile = async (uid: string) => {
     try {
       const userRef = doc(db, 'users', uid);
@@ -102,7 +103,7 @@ export function AuthProvider({
           email,
           password
         );
-
+      // usercredential is the object that is returned when a user is created it contains the user information and other data.
       const firebaseUser = userCredential.user;
 
       await updateProfile(firebaseUser, {
@@ -160,7 +161,7 @@ export function AuthProvider({
     </AuthContext.Provider>
   );
 }
-
+//uses the use auth to get the globally accessable data
 export function useAuth() {
   const context = useContext(AuthContext);
 
