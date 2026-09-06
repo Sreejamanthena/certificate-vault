@@ -1,3 +1,7 @@
+// its an special type of file provided by the nextjs that alllows us to render the pages that can access the globbly variables and data from the context container 
+// it is used to wrap the entire application and provide the context to all the pages and components in the application
+// this avoids the prop drilling and makes the data accessible globally to all the pages and components in the application
+// we can wrap the pages of the application with the provider and access the data from the context container in any page or component in the application 
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
